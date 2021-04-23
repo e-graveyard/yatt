@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/caian-org/yatt#readme",
   "scripts": {
-    "start": "node ./dist/index.ts",
+    "start": "node ./dist/index.js",
     "start:watch": "nodemon",
     "build": "tsc -p tsconfig.json",
     "prettify": "prettier --no-semi --print-width 100 --single-quote --trailing-comma none --write './src/*.ts'",
