@@ -33,16 +33,6 @@ An opinionated template for TypeScript projects that includes, out of the box:
 [tag-url]: https://github.com/caian-org/yatt/releases
 
 
-## Who is it for?
-
-Primarily, me. These _features_ are stuff that I've been sparsely using on my
-private and public projects. It's better to just compile everything into
-something ready-to-be-used.
-
-It doesn't stop you, however, to use it for your own good. This is public
-domain, so use it with or without notice.
-
-
 ## License
 
 To the extent possible under law, [Caian Rais Ertl][me] has waived __all
