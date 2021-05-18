@@ -1,8 +1,13 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  parserOptions: {
-    project: './tsconfig.json'
-  },
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      parserOptions: {
+        project: ['./tsconfig.json']
+      }
+    }
+  ],
   rules: {
     'no-useless-constructor': 'off',
     'no-unused-vars': 'off',
@@ -10,11 +15,7 @@ module.exports = {
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-unused-vars': 'error',
-    '@typescript-eslint/no-useless-constructor': 'error',
-    '@typescript-eslint/no-floating-promises': [
-      'error',
-      { ignoreIIFE: true }
-    ]
+    '@typescript-eslint/no-useless-constructor': 'error'
   },
   extends: ['standard-with-typescript']
 }
