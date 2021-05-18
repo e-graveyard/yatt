@@ -43,7 +43,8 @@
     "preset": "ts-jest",
     "testEnvironment": "node",
     "collectCoverageFrom": [
-      "**/src/**/*.{js,jsx,ts,tsx}"
+      "**/src/**/*.{js,jsx,ts,tsx}",
+      "!src/index.ts"
     ],
     "moduleFileExtensions": [
       "js",
@@ -63,7 +64,12 @@
     "testPathIgnorePatterns": [
       "/dist/",
       "/node_modules/"
-    ]
+    ],
+    "coverageThreshold": {
+      "global": {
+        "lines": 80
+      }
+    }
   },
   "nodemonConfig": {
     "ignore": [
