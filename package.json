@@ -27,7 +27,8 @@
     "fix:style": "prettier --no-semi --print-width 100 --single-quote --trailing-comma none --write './src/*.ts' && standardx --fix ./src/**/*.ts",
     "check:lint": "eslint --format=codeframe './src/**/*.ts'",
     "check:style": "standardx",
-    "check:all": "npm run check:lint && npm run check:style",
+    "check:duplicated": "jscpd src",
+    "check:all": "npm run check:lint && npm run check:style && npm run check:duplicated",
     "test": "jest --verbose",
     "test:unit": "jest --collect-coverage",
     "coverage": "codecov --token=\"$CODECOV_TOKEN\"",
@@ -38,6 +39,20 @@
     "plugins": [
       "@typescript-eslint/eslint-plugin"
     ]
+  },
+  "lint-staged": {
+    "src/**/*.js": [
+      "npm run fix:style"
+    ]
+  },
+  "jscpd": {
+    "threshold": 5,
+    "reporters": [
+      "html",
+      "console"
+    ],
+    "absolute": true,
+    "gitignore": true
   },
   "jest": {
     "preset": "ts-jest",
