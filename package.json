@@ -20,12 +20,12 @@
     "yatt"
   ],
   "scripts": {
-    "start": "node ./dist/index.js",
+    "start": "node dist/index.js",
     "start:watch": "nodemon",
     "build:js": "tsc -p tsconfig.json",
     "build:docs": "typedoc --theme ./node_modules/typedoc-neo-theme/bin/default --plugin typedoc-neo-theme src && cp logo.svg docs",
-    "fix:style": "prettier --no-semi --print-width 100 --single-quote --trailing-comma none --write './src/*.ts' && standardx --fix ./src/**/*.ts",
-    "check:lint": "eslint --format=codeframe './src/**/*.ts'",
+    "fix:style": "prettier --no-semi --print-width 100 --single-quote --trailing-comma none --write 'src/*.ts' && standardx --fix 'src/*.ts'",
+    "check:lint": "eslint --format=codeframe 'src/*.ts'",
     "check:style": "standardx",
     "check:duplicated": "jscpd src",
     "check:all": "npm run check:lint && npm run check:style && npm run check:duplicated",
@@ -41,7 +41,7 @@
     ]
   },
   "lint-staged": {
-    "src/**/*.js": [
+    "src/*.js": [
       "npm run fix:style"
     ]
   },
@@ -114,8 +114,8 @@
     "husky": "^7.0.1",
     "jest": "^27.0.6",
     "jscpd": "^3.3.26",
-    "jsdoc": "^3.6.7",
     "lint-staged": "^11.0.1",
+    "nodemon": "^2.0.12",
     "prettier": "^2.3.2",
     "standardx": "^7.0.0",
     "ts-jest": "^27.0.3",
