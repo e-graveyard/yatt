@@ -32,12 +32,10 @@
     "check:style": "standardx",
     "check:duplicated": "jscpd",
     "check:all": "npm run check:lint && npm run check:style && npm run check:duplicated",
-    "fix:style": "npm run prettier && standardx --fix '**/*.ts'",
-    "test": "jest --verbose",
-    "test:unit": "jest --collect-coverage",
+    "fix:style": "prettier --no-semi --print-width 100 --single-quote --trailing-comma none --write '**/*.ts' && standardx --fix '**/*.ts'",
+    "test": "jest --verbose --collect-coverage",
+    "test:cov": "npm test && codecov --token=\"$CODECOV_TOKEN\"",
     "clean": "rm -rf coverage dist docs report",
-    "coverage": "codecov --token=\"$CODECOV_TOKEN\"",
-    "prettier": "prettier --no-semi --print-width 100 --single-quote --trailing-comma none --write '**/*.ts'",
     "prepare": "[ \"$NODE_ENV\" == \"production\" ] && exit 0; husky install"
   },
   "standardx": {
@@ -65,6 +63,7 @@
     "absolute": true,
     "gitignore": true,
     "ignore": [
+      "**/.github/**",
       "**/dist/**",
       "**/docs/**",
       "**/report/**"
@@ -75,6 +74,7 @@
     "testEnvironment": "node",
     "collectCoverageFrom": [
       "**/src/**/*.{js,jsx,ts,tsx}",
+      "!dist/**/*.js",
       "!src/index.ts"
     ],
     "moduleFileExtensions": [
