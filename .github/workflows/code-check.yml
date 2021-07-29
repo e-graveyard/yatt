@@ -33,4 +33,4 @@ jobs:
         run: npm i
 
       - name: Perform all checkings
-        run: npm run check:all
+        run: npm run all
