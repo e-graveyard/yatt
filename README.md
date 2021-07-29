@@ -33,6 +33,12 @@ An opinionated template for TypeScript projects that includes, out of the box:
 [tag-url]: https://github.com/caian-org/yatt/releases
 
 
+## How can I use it?
+
+Simply put: take what suits you, ignore or change what you do not like, and
+apply according to his will.
+
+
 ## License
 
 To the extent possible under law, [Caian Rais Ertl][me] has waived __all
