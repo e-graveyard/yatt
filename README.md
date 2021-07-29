@@ -9,12 +9,12 @@
 
 An opinionated template for TypeScript projects that includes, out of the box:
 
+- Type-safe JS with __TypeScript__
 - Unit testing with __Jest__
-- Next generation JS with __TypeScript__
 - Code coverage on __Codecov__
 - __Docker__ image
 - Good-looking API documentation with __TypeDoc__
-- CI/CD pipeline on __Azure DevOps__ with:
+- CI/CD pipeline on __GitHub Actions__ with:
     - Linting, typing and style checking
     - Test execution and coverage report upload
     - Documentation assets upload to public S3 bucket
