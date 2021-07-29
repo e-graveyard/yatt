@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Yet Another TypeScript Template",
   "main": "dist/index.js",
-  "author": "Caian R. Ertl",
+  "author": "Caian Ertl <hi@caian.org>",
   "license": "CC0-1.0",
   "repository": {
     "type": "git",
@@ -20,18 +20,20 @@
     "yatt"
   ],
   "scripts": {
-    "start": "node dist/index.js",
+    "all": "npm run build:js && npm run build:docs && npm run fix:style && npm run check:all && npm test && npm start",
+    "start": "node dist/src/index.js",
     "start:watch": "nodemon",
     "build:js": "tsc -p tsconfig.json",
     "build:docs": "typedoc --theme ./node_modules/typedoc-neo-theme/bin/default --plugin typedoc-neo-theme src && cp logo.svg docs",
-    "fix:style": "prettier --no-semi --print-width 100 --single-quote --trailing-comma none --write 'src/*.ts' && standardx --fix 'src/*.ts'",
-    "check:lint": "eslint --format=codeframe 'src/*.ts'",
+    "fix:style": "npm run prettier && standardx --fix '**/*.ts'",
+    "check:lint": "eslint --format=codeframe '**/*.ts'",
     "check:style": "standardx",
-    "check:duplicated": "jscpd src",
+    "check:duplicated": "jscpd",
     "check:all": "npm run check:lint && npm run check:style && npm run check:duplicated",
     "test": "jest --verbose",
     "test:unit": "jest --collect-coverage",
     "coverage": "codecov --token=\"$CODECOV_TOKEN\"",
+    "prettier": "prettier --no-semi --print-width 100 --single-quote --trailing-comma none --write '**/*.ts'",
     "prepare": "[ \"$NODE_ENV\" == \"production\" ] && exit 0; husky install"
   },
   "standardx": {
@@ -40,8 +42,13 @@
       "@typescript-eslint/eslint-plugin"
     ]
   },
+  "eslintIgnore": [
+    "dist",
+    "docs",
+    "report"
+  ],
   "lint-staged": {
-    "src/*.js": [
+    "**/*.ts": [
       "npm run fix:style"
     ]
   },
@@ -52,7 +59,12 @@
       "console"
     ],
     "absolute": true,
-    "gitignore": true
+    "gitignore": true,
+    "ignore": [
+      "**/dist/**",
+      "**/docs/**",
+      "**/report/**"
+    ]
   },
   "jest": {
     "preset": "ts-jest",
