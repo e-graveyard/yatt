@@ -15,10 +15,10 @@ An opinionated template for TypeScript projects that includes, out of the box:
 - __Docker__ image
 - Good-looking API documentation with __TypeDoc__
 - CI/CD pipeline on __GitHub Actions__ with:
-    - Linting, typing and style checking
+    - Linting, style and code duplication checking
     - Test execution and coverage report upload
     - Documentation assets upload to public S3 bucket
-    - Docker image push to DockerHub
+    - Docker image build and push to DockerHub
 
 [devops-shield]: https://img.shields.io/azure-devops/build/caian-org/6b8362d8-2849-47c8-8720-1215a3f121c3/3.svg?logo=azure-pipelines&style=flat-square
 [devops-url]: https://dev.azure.com/caian-org/yatt/_build
