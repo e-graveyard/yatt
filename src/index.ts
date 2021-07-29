@@ -1,17 +1,28 @@
 import { Calculator } from './calculator'
 
 /**
+ * Repeats a given callback function N times.
+ *
+ * @param {number} n - the amount of times to repeat.
+ * @param {number} cb - the callback function.
+ */
+const each = (n: number, cb: (v: any, i: number) => void): void =>
+  Array.from(Array(n).keys()).forEach(cb)
+
+/**
  * Calculate and outputs a multiplication table of a given value.
  *
  * @param {number} operand - the multiplication number.
  */
 function multiplicationTable (operand: number): void {
-  console.log(`Times table of ${operand}:\n`)
+  console.log(`\nTimes table of ${operand}:\n`)
 
-  for (let i = 1; i <= 10; i++) {
-    const result = new Calculator(i).times(operand).equals()
-    console.log(`${i} x ${operand} = ${result}`)
-  }
+  each(10, (_, i) => {
+    const iter = i + 1
+    const result = new Calculator(iter).times(operand).equals()
+
+    console.log(`${iter} x ${operand} = ${result}`)
+  })
 }
 
-multiplicationTable(7)
+each(10, (_, i) => multiplicationTable(i + 1))
