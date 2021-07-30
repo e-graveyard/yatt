@@ -23,7 +23,7 @@
     "all": "npm run build:js && npm run build:docs && npm run fix:style && npm run check:all && npm test && npm start && npm run clean",
     "start": "node dist/src/index.js",
     "start:watch": "nodemon",
-    "build:js": "tsc -p tsconfig.json",
+    "build:js": "tsc",
     "build:docs": "typedoc --theme ./node_modules/typedoc-neo-theme/bin/default --plugin typedoc-neo-theme src && cp logo.svg docs",
     "bump:dev": "ncu --upgrade --dep dev",
     "bump:prod": "ncu --upgrade --dep prod --target minor",
@@ -103,6 +103,9 @@
       "global": {
         "lines": 80
       }
+    },
+    "moduleNameMapper": {
+      "^@yatt/(.*)$": "<rootDir>/src/$1"
     }
   },
   "nodemonConfig": {
