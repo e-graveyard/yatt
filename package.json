@@ -38,6 +38,9 @@
     "clean": "rm -rf coverage dist docs report",
     "prepare": "[ \"$NODE_ENV\" == \"production\" ] && exit 0; husky install"
   },
+  "_moduleAliases": {
+      "@yatt": "dist/src"
+  },
   "standardx": {
     "parser": "@typescript-eslint/parser",
     "plugins": [
@@ -143,6 +146,7 @@
     "vrelease-bin": "^0.3.1"
   },
   "dependencies": {
+    "module-alias": "^2.2.2",
     "winston": "^3.3.3"
   }
 }
