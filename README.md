@@ -1,6 +1,7 @@
-[![Build Status][devops-shield]][devops-url]
-[![Code Coverage][codecov-shield]][codecov-url]
-[![Code Quality][lgtm-shield]][lgtm-url]
+[![Tests][gh-tc-shield]][gh-tc-url]
+[![Code check][gh-cc-shield]][gh-cc-url]
+[![Code coverage][codecov-shield]][codecov-url]
+[![Code quality][lgtm-shield]][lgtm-url]
 [![GitHub tag][tag-shield]][tag-url]
 
 # Yet Another TypeScript Template
@@ -20,8 +21,11 @@ An opinionated template for TypeScript projects that includes, out of the box:
     - Documentation assets upload to public S3 bucket
     - Docker image build and push to DockerHub
 
-[devops-shield]: https://img.shields.io/azure-devops/build/caian-org/6b8362d8-2849-47c8-8720-1215a3f121c3/3.svg?logo=azure-pipelines&style=flat-square
-[devops-url]: https://dev.azure.com/caian-org/yatt/_build
+[gh-tc-shield]: https://img.shields.io/github/workflow/status/caian-org/yatt/test-with-cov?label=tests&logo=github&style=flat-square
+[gh-tc-url]: https://github.com/caian-org/yatt/actions/workflows/test-with-cov.yml
+
+[gh-cc-shield]: https://img.shields.io/github/workflow/status/caian-org/yatt/code-check?label=code%20check&logo=github&style=flat-square
+[gh-cc-url]: https://github.com/caian-org/yatt/actions/workflows/code-check.yml
 
 [codecov-shield]: https://img.shields.io/codecov/c/github/caian-org/yatt.svg?logo=codecov&logoColor=FFF&style=flat-square
 [codecov-url]: https://codecov.io/gh/caian-org/yatt
