@@ -1,8 +1,8 @@
 /* globals describe it expect */
 
-import { Calculator } from '../src/calculator'
+import Calculator from '@yatt/Calculator'
 
-describe('Calculator:', () => {
+describe('Calculator:', (): void => {
   it('Should sum two values', (): void => {
     const result = new Calculator(1).plus(1).equals()
     expect(result).toEqual(2)
