@@ -1,4 +1,5 @@
-import { Calculator } from './calculator'
+import 'module-alias/register'
+import { Calculator } from '@yatt/Calculator'
 
 /**
  * Repeats a given callback function N times.
