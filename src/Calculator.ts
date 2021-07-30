@@ -1,5 +1,5 @@
 /**
- * @module src/calculator
+ * @module src/Calculator
  */
 
 /**
@@ -11,8 +11,7 @@ export default class {
 
   /**
    * Creates a new calculator.
-   *
-   * @param {number} operand - First operand.
+   * @param operand - First operand.
    */
   constructor (operand: number) {
     this.result = operand
@@ -20,9 +19,8 @@ export default class {
 
   /**
    * Adds a value to the current result.
-   *
-   * @param {number} value - The number value to be added.
-   * @returns {object} - The class itself object.
+   * @param value - The number value to be added.
+   * @returns The class itself object.
    */
   plus (value: number): this {
     this.result += value
@@ -31,9 +29,8 @@ export default class {
 
   /**
    * Subtracts a value to the current result.
-   *
-   * @param {number} value - The number value to be subtracted.
-   * @returns {object} - The class itself object.
+   * @param value - The number value to be subtracted.
+   * @returns The class itself object.
    */
   minus (value: number): this {
     this.result -= value
@@ -42,9 +39,8 @@ export default class {
 
   /**
    * Divides the result by a given value.
-   *
-   * @param {number} value - The number to divide the result.
-   * @returns {object} - The class itself object.
+   * @param value - The number to divide the result.
+   * @returns The class itself object.
    */
   divided (value: number): this {
     this.result /= value
@@ -53,9 +49,8 @@ export default class {
 
   /**
    * Multiplies the result by a given value.
-   *
-   * @param {number} value - The number to multiply the result.
-   * @returns {object} - The class itself object.
+   * @param value - The number to multiply the result.
+   * @returns The class itself object.
    */
   times (value: number): this {
     this.result *= value
@@ -64,8 +59,7 @@ export default class {
 
   /**
    * Finishes the calculation and returns the final result.
-   *
-   * @returns {number}
+   * @returns The final result.
    */
   equals (): number {
     return this.result
