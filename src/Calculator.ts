@@ -6,7 +6,7 @@
  * Calculator with basic operations.
  * @class
  */
-export class Calculator {
+export default class {
   result: number
 
   /**
