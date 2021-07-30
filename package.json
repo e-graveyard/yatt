@@ -1,6 +1,6 @@
 {
   "name": "yatt",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Yet Another TypeScript Template",
   "main": "dist/src/index.js",
   "author": "Caian Ertl <hi@caian.org>",
