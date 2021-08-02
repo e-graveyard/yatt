@@ -39,7 +39,7 @@
     "prepare": "[ \"$NODE_ENV\" == \"production\" ] && exit 0; husky install"
   },
   "_moduleAliases": {
-      "@yatt": "dist/src"
+    "@yatt": "dist/src"
   },
   "standardx": {
     "parser": "@typescript-eslint/parser",
@@ -122,11 +122,11 @@
   },
   "devDependencies": {
     "@types/jest": "^26.0.24",
-    "@types/node": "^16.4.7",
+    "@types/node": "^16.4.10",
     "@typescript-eslint/eslint-plugin": "^4.28.5",
     "@typescript-eslint/parser": "^4.28.5",
     "codecov": "^3.8.3",
-    "eslint": "^7.31.0",
+    "eslint": "^7.32.0",
     "eslint-config-standard-with-typescript": "^20.0.0",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jest": "^24.4.0",
@@ -143,7 +143,7 @@
     "standardx": "^7.0.0",
     "ts-jest": "^27.0.4",
     "ts-node": "^10.1.0",
-    "typedoc": "^0.21.4",
+    "typedoc": "^0.21.5",
     "typedoc-neo-theme": "^1.1.1",
     "typescript": "^4.3.5",
     "vrelease-bin": "^0.3.1"
