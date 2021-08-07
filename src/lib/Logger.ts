@@ -25,8 +25,8 @@ interface IHash {
  * @property label - The logger label.
  */
 export interface ILoggerConfig {
-  isDev?: boolean
-  label?: string
+  readonly isDev?: boolean
+  readonly label?: string
 }
 
 /**
