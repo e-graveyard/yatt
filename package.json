@@ -2,7 +2,7 @@
   "name": "yatt",
   "version": "0.4.0",
   "description": "Yet Another TypeScript Template",
-  "main": "dist/src/index.js",
+  "main": "dist/index.js",
   "author": "Caian Ertl <hi@caian.org>",
   "license": "CC0-1.0",
   "repository": {
@@ -20,18 +20,20 @@
     "yatt"
   ],
   "scripts": {
-    "all": "npm run build:js && npm run build:docs && npm run fix:style && npm run check:all && npm test && npm start && npm run clean",
-    "start": "node dist/src/index.js",
+    "all": "npm run build:js && npm run build:docs && npm run fix:style && npm run check:all && npm test && npm run clean",
+    "start": "node dist/index.js",
     "start:watch": "nodemon",
-    "build:js": "tsc",
+    "build:js": "swc src --out-dir dist & tsc --skipLibCheck --noEmit",
+    "build:js:clean": "rm -rf dist && npm run build:js",
     "build:docs": "typedoc --theme ./node_modules/typedoc-neo-theme/bin/default --plugin typedoc-neo-theme src && cp logo.svg docs",
     "bump:dev": "ncu --upgrade --dep dev",
     "bump:prod": "ncu --upgrade --dep prod --target minor",
     "bump:all": "npm run bump:dev && npm run bump:prod",
+    "check:build": "tsc --noEmit",
     "check:lint": "eslint --format=codeframe '**/*.ts'",
     "check:style": "standardx",
     "check:duplicated": "jscpd",
-    "check:all": "npm run check:lint && npm run check:style && npm run check:duplicated",
+    "check:all": "npm run check:build && npm run check:lint && npm run check:style && npm run check:duplicated",
     "fix:style": "prettier --no-semi --print-width 100 --single-quote --trailing-comma none --write '**/*.ts' && standardx --fix '**/*.ts'",
     "test": "jest --verbose --collect-coverage",
     "test:cov": "npm test && codecov --token=\"$CODECOV_TOKEN\"",
@@ -39,7 +41,7 @@
     "prepare": "[ \"$NODE_ENV\" == \"production\" ] && exit 0; husky install"
   },
   "_moduleAliases": {
-    "@yatt": "dist/src"
+    "@yatt": "dist"
   },
   "standardx": {
     "parser": "@typescript-eslint/parser",
@@ -121,6 +123,8 @@
     "ext": "ts"
   },
   "devDependencies": {
+    "@swc/cli": "^0.1.46",
+    "@swc/core": "^1.2.74",
     "@types/jest": "^26.0.24",
     "@types/node": "^16.4.12",
     "@typescript-eslint/eslint-plugin": "^4.29.0",
@@ -150,6 +154,7 @@
   },
   "dependencies": {
     "module-alias": "^2.2.2",
+    "regenerator-runtime": "^0.13.9",
     "winston": "^3.3.3"
   }
 }
