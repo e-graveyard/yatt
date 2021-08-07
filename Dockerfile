@@ -31,4 +31,4 @@ RUN chown -R turing:turing dist
 FROM prod-deps AS run
 USER turing
 COPY --from=build ["/home/turing/dist", "./dist"]
-CMD ["npm", "run", "start:cond"]
+ENTRYPOINT ["npm", "start"]
