@@ -2,28 +2,33 @@ FROM node:15.12.0-alpine AS base
 MAINTAINER Caian R. Ertl <hi@caian.org>
 
 RUN npm i -g npm@latest
-RUN addgroup -S alan && adduser -S alan -G alan
-RUN mkdir -p /home/alan
-RUN chown alan:alan /home/alan
-USER alan
-WORKDIR /home/alan
+RUN addgroup -S turing && adduser -S turing -G turing
+RUN mkdir -p /home/turing
+RUN chown turing:turing /home/turing
+USER turing
+WORKDIR /home/turing
 
-FROM base AS build
-USER root
-COPY . .
-RUN npm install
-RUN npm run build:js
-RUN chown -R alan:alan dist
-
-FROM base AS dependencies
+FROM base AS package
 USER root
 COPY package.json .
 COPY package-lock.json .
-RUN export NODE_ENV="production"
-RUN npm install --only=production
-RUN chown -R alan:alan node_modules
 
-FROM dependencies AS run
-USER alan
-COPY --from=build ["/home/alan/dist", "./dist"]
-ENTRYPOINT ["npm", "start"]
+FROM package AS prod-deps
+RUN npm i --only=production
+RUN chown -R turing:turing node_modules package.json package-lock.json
+
+FROM package AS dev-deps
+RUN npm i
+RUN npm i --save-dev @swc/core-linux-musl
+
+FROM dev-deps AS build
+COPY src src
+COPY tsconfig.json .
+COPY .swcrc .
+RUN npm run build:js
+RUN chown -R turing:turing dist
+
+FROM prod-deps AS run
+USER turing
+COPY --from=build ["/home/turing/dist", "./dist"]
+CMD ["npm", "run", "start:cond"]
