@@ -14,7 +14,10 @@ COPY package.json .
 COPY package-lock.json .
 
 FROM package AS prod-deps
-RUN npm i --only=production
+RUN apk add --no-cache curl
+RUN curl -sf https://gobinaries.com/tj/node-prune | sh
+RUN NODE_ENV="production" npm i --only=production
+RUN node-prune
 RUN chown -R turing:turing node_modules package.json package-lock.json
 
 FROM package AS dev-deps
@@ -30,5 +33,6 @@ RUN chown -R turing:turing dist
 
 FROM prod-deps AS run
 USER turing
-COPY --from=build ["/home/turing/dist", "./dist"]
+COPY --from=prod-deps ["/home/turing/node_modules", "node_modules"]
+COPY --from=build ["/home/turing/dist", "dist"]
 ENTRYPOINT ["npm", "start"]
