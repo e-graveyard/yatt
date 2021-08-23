@@ -2,6 +2,7 @@
 [![Code check][gh-cc-shield]][gh-cc-url]
 [![Code coverage][codecov-shield]][codecov-url]
 [![Code quality][lgtm-shield]][lgtm-url]
+[![Docker Image Size][docker-img-size-shield]][docker-url]
 [![GitHub tag][tag-shield]][tag-url]
 
 # Yet Another TypeScript Template
@@ -32,6 +33,9 @@ An opinionated template for TypeScript projects that includes, out of the box:
 
 [lgtm-shield]: https://img.shields.io/lgtm/grade/javascript/g/caian-org/yatt.svg?logo=lgtm&style=flat-square
 [lgtm-url]: https://lgtm.com/projects/g/caian-org/yatt/context:javascript
+
+[docker-img-size-shield]: https://img.shields.io/docker/image-size/caian/yatt?sort=semver&logo=docker&logoColor=FFF&style=flat-square
+[docker-url]: https://hub.docker.com/r/caian/yatt
 
 [tag-shield]: https://img.shields.io/github/tag/caian-org/yatt.svg?logo=git&logoColor=FFF&style=flat-square
 [tag-url]: https://github.com/caian-org/yatt/releases
