@@ -31,8 +31,8 @@ COPY .swcrc .
 RUN npm run build:js
 RUN chown -R turing:turing dist
 
-FROM prod-deps AS run
+FROM package AS run
 USER turing
-COPY --from=prod-deps ["/home/turing/node_modules", "node_modules"]
-COPY --from=build ["/home/turing/dist", "dist"]
+COPY --from=prod-deps ["/home/turing/node_modules", "./node_modules"]
+COPY --from=build ["/home/turing/dist", "./dist"]
 ENTRYPOINT ["npm", "start"]
