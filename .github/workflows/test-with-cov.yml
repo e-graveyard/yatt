@@ -1,4 +1,4 @@
-name: test-with-cov
+name: Run tests and upload coverage
 
 on:
   push:
