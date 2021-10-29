@@ -1,4 +1,4 @@
-FROM node:15.12.0-alpine AS base
+FROM node:16.13.0-alpine AS base
 MAINTAINER Caian R. Ertl <hi@caian.org>
 
 RUN npm i -g npm@latest
