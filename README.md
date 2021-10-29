@@ -43,8 +43,8 @@ An opinionated template for TypeScript projects that includes, out of the box:
 
 ## How can I use it?
 
-Simply put: take what suits you, ignore or change what you do not like, and
-apply according to his will.
+Take what suits you, ignore or change what you do not like, and apply according
+to his will.
 
 
 ## License
