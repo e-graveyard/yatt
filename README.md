@@ -19,8 +19,9 @@ An opinionated template for TypeScript projects that includes, out of the box:
 - CI/CD pipeline on __GitHub Actions__ with:
     - Linting, style and code duplication checking
     - Test execution and coverage report upload
-    - Documentation assets upload to public S3 bucket
     - Docker image build and push to DockerHub
+
+The API documentation live preview is available at [yatt.pages.dev](https://yatt.pages.dev).
 
 [gh-tc-shield]: https://img.shields.io/github/workflow/status/caian-org/yatt/test-with-cov?label=tests&logo=github&style=flat-square
 [gh-tc-url]: https://github.com/caian-org/yatt/actions/workflows/test-with-cov.yml
