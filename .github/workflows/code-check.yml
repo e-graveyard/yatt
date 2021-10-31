@@ -19,15 +19,18 @@ on:
 jobs:
   code-check:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        nodejs-version: ['16.13', '14.18', '12.22']
 
     steps:
       - name: Checkout to yatt
         uses: actions/checkout@v2
 
-      - name: Set up NodeJS
+      - name: Set up NodeJS ${{ matrix.nodejs-version }}
         uses: actions/setup-node@v1
         with:
-          node-version: 16.x
+          node-version: ${{ matrix.nodejs-version }}
 
       - name: Install dependencies
         run: npm i
