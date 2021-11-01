@@ -42,6 +42,13 @@ The API documentation live preview is available at [yatt.pages.dev](https://yatt
 [tag-url]: https://github.com/caian-org/yatt/releases
 
 
+## Compatibility
+
+Any version above `12.x` is okay: `yatt` is tested against the latest three
+NodeJS LTS versions (`12.22`, `14.18` and `16.13`) and the most recent
+available (`>= 17`).
+
+
 ## How can I use it?
 
 Take what suits you, ignore or change what you do not like, and apply according

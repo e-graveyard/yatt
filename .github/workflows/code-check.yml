@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        nodejs-version: ['16.13', '14.18', '12.22']
+        nodejs-version: ['17', '16.13', '14.18', '12.22']
 
     steps:
       - name: Checkout to yatt
