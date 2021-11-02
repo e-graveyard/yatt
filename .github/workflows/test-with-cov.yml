@@ -21,10 +21,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout to yatt
+      - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up NodeJS
+      - name: Setup NodeJS
         uses: actions/setup-node@v1
         with:
           node-version: 16.x
