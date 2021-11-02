@@ -3,18 +3,18 @@ name: perform-code-checkings
 on:
   push:
     branches:
-      - "*"
+      - '*'
     tags:
-      - "*"
+      - '*'
     paths-ignore:
-      - "**.md"
+      - '**.md'
   pull_request:
     branches:
-      - "*"
+      - '*'
     tags:
-      - "*"
+      - '*'
     paths-ignore:
-      - "**.md"
+      - '**.md'
 
 jobs:
   code-check:
