@@ -1,5 +1,4 @@
 [![Tests][gh-tc-shield]][gh-tc-url]
-[![Code check][gh-cc-shield]][gh-cc-url]
 [![Code coverage][codecov-shield]][codecov-url]
 [![Code quality][lgtm-shield]][lgtm-url]
 [![Docker Image Size][docker-img-size-shield]][docker-url]
@@ -23,11 +22,8 @@ An opinionated template for TypeScript projects that includes, out of the box:
 
 The API documentation live preview is available at [yatt.upsetbit.co](https://yatt.upsetbit.co).
 
-[gh-tc-shield]: https://img.shields.io/github/workflow/status/caian-org/yatt/test-with-cov?label=tests&logo=github&style=flat-square
+[gh-tc-shield]: https://img.shields.io/github/workflow/status/caian-org/yatt/run-tests-and-upload-coverage?label=tests&logo=github&style=flat-square
 [gh-tc-url]: https://github.com/caian-org/yatt/actions/workflows/test-with-cov.yml
-
-[gh-cc-shield]: https://img.shields.io/github/workflow/status/caian-org/yatt/code-check?label=code%20check&logo=github&style=flat-square
-[gh-cc-url]: https://github.com/caian-org/yatt/actions/workflows/code-check.yml
 
 [codecov-shield]: https://img.shields.io/codecov/c/github/caian-org/yatt.svg?logo=codecov&logoColor=FFF&style=flat-square
 [codecov-url]: https://codecov.io/gh/caian-org/yatt
