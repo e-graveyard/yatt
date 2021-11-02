@@ -12,7 +12,7 @@ jobs:
       IMAGE_NAME: caian/yatt
 
     steps:
-      - name: Checkout to yatt
+      - name: Checkout code
         uses: actions/checkout@v2
         with:
           fetch-depth: 0
