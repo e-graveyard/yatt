@@ -1,4 +1,4 @@
-name: Perform code checkings
+name: perform-code-checkings
 
 on:
   push:
