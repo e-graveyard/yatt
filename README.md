@@ -16,6 +16,7 @@ An opinionated template for TypeScript projects that includes, out of the box:
 - __Docker__ image
 - Good-looking API documentation with __TypeDoc__
 - CI/CD pipeline on __GitHub Actions__ with:
+    - Node modules caching for faster pipelines
     - Linting, style and code duplication checking
     - Test execution and coverage report upload
     - Docker image build and push to DockerHub
