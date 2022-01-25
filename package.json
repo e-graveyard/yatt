@@ -36,7 +36,6 @@
     "check:all": "npm run check:build && npm run check:lint && npm run check:style && npm run check:duplicated",
     "fix:style": "prettier --no-semi --print-width 100 --single-quote --trailing-comma none --write '**/*.ts' && standardx --fix '**/*.ts'",
     "test": "jest --verbose --collect-coverage",
-    "test:cov": "npm test && codecov --token=\"$CODECOV_TOKEN\"",
     "clean": "rm -rf coverage dist docs report",
     "commit": "cz",
     "prepare": "[ \"$NODE_ENV\" == \"production\" ] && exit 0; husky install"
@@ -142,7 +141,6 @@
     "@types/node": "^16.11.21",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
-    "codecov": "^3.8.3",
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^7.32.0",
