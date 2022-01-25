@@ -1,6 +1,6 @@
 {
   "name": "yatt",
-  "version": "1.3.0",
+  "version": "1.5.0",
   "description": "Yet Another TypeScript Template",
   "main": "dist/index.js",
   "author": "Caian Ertl <hi@caian.org>",
@@ -20,7 +20,7 @@
     "yatt"
   ],
   "scripts": {
-    "all": "npm run build:js && npm run build:docs && npm run fix:style && npm run check:all && npm test && npm run clean",
+    "all": "npm run build:js && npm run build:docs && npm run check:all && npm test && npm run clean",
     "start": "node dist/index.js",
     "start:watch": "nodemon",
     "build:js": "swc src --out-dir dist & tsc --skipLibCheck --noEmit",
