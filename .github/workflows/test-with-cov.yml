@@ -47,5 +47,10 @@ jobs:
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
         run: npm i
 
-      - name: Run unit tests and upload coverage
-        run: npm run test:cov
+      - name: Run unit tests
+        run: npm test
+
+      - name: Upload coverage results
+        uses: codecov/codecov-action@v2
+        with:
+          verbose: true
