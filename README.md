@@ -21,7 +21,12 @@ An opinionated template for TypeScript projects that includes, out of the box:
     - Test execution and coverage report upload
     - Docker image build and push to DockerHub
 
-The API documentation live preview is available at [yatt.upsetbit.co](https://yatt.upsetbit.co).
+For a slimmer version -- simpler and with less dependencies -- see
+[`yatt-slim`][yatt-slim]. The API documentation live preview is available at
+[yatt.upsetbit.co][yatt-docs].
+
+[yatt-slim]: https://github.com/caian-org/yatt-slim
+[yatt-docs]: https://yatt.upsetbit.co
 
 [gh-tc-shield]: https://img.shields.io/github/workflow/status/caian-org/yatt/run-tests-and-upload-coverage?label=tests&logo=github&style=flat-square
 [gh-tc-url]: https://github.com/caian-org/yatt/actions/workflows/test-with-cov.yml
