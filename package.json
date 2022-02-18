@@ -130,7 +130,7 @@
   "dependencies": {
     "module-alias": "^2.2.2",
     "regenerator-runtime": "^0.13.9",
-    "winston": "^3.4.0"
+    "winston": "^3.5.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.1.0",
