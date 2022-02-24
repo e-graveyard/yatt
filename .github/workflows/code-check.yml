@@ -37,7 +37,9 @@ jobs:
         id: cache-node-modules
         uses: actions/cache@v2
         with:
-          path: ~/.pnpm-store
+          path: |
+            ./node_modules
+            ~/.pnpm-store
           key: ${{ env.preffix }}-cache-${{ env.cache-name }}-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ env.preffix }}-cache-${{ env.cache-name }}-
