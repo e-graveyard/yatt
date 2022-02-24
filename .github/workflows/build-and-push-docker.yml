@@ -2,8 +2,7 @@ name: build-docker-image-and-push-to-hub
 
 on:
   push:
-    tags:
-      - 'v*'
+    tags: 'v*'
 
 jobs:
   build-and-push-docker:

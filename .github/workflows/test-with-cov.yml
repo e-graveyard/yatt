@@ -2,19 +2,14 @@ name: run-tests-and-upload-coverage
 
 on:
   push:
-    branches:
-      - '*'
-    tags:
-      - '*'
-    paths-ignore:
-      - '**.md'
+    branches: '*'
+    tags: '*'
+    paths-ignore: '**.md'
+
   pull_request:
-    branches:
-      - '*'
-    tags:
-      - '*'
-    paths-ignore:
-      - '**.md'
+    branches: '*'
+    tags: '*'
+    paths-ignore: '**.md'
 
 jobs:
   test-with-cov:
@@ -24,31 +19,36 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.2.0
+        with:
+          version: 6.32.x
+
       - name: Setup NodeJS
         uses: actions/setup-node@v2
         with:
-          node-version: '16.13'
+          node-version: 16.x
 
-      - name: Cache Node modules
+      - name: Cache pnpm store
         id: cache-node-modules
         uses: actions/cache@v2
         with:
-          path: node_modules
-          key: ${{ env.preffix }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          path: ~/.pnpm-store
+          key: ${{ env.preffix }}-cache-${{ env.cache-name }}-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ env.preffix }}-build-${{ env.cache-name }}-
-            ${{ env.preffix }}-build-
+            ${{ env.preffix }}-cache-${{ env.cache-name }}-
+            ${{ env.preffix }}-cache-
             ${{ env.preffix }}-
         env:
-          cache-name: cache-node-modules
-          preffix: ${{ runner.os }}-node-${{ matrix.nodejs-version }}
+          cache-name: test-with-cov
+          preffix: ${{ runner.os }}
 
       - name: Install dependencies
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: npm i
+        run: pnpm i
 
       - name: Run unit tests
-        run: npm test
+        run: pnpm test
 
       - name: Upload coverage results
         uses: codecov/codecov-action@v2
