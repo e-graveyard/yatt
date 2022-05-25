@@ -133,7 +133,7 @@
     "winston": "^3.7.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^16.2.3",
+    "@commitlint/cli": "^17.0.1",
     "@commitlint/config-conventional": "^16.2.1",
     "@swc/cli": "^0.1.57",
     "@swc/core": "^1.2.165",
