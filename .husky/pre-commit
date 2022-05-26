@@ -1,4 +1,7 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-pnpx lint-staged
+(
+    cd package
+    pnpm exec lint-staged
+)
