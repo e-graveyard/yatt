@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        nodejs-version: ['17.x', '16.x', '14.x', '12.x']
+        nodejs-version: ['18.x', '17.x', '16.x', '15.x', '14.x']
 
     steps:
       - name: Checkout code
@@ -25,7 +25,7 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2.2.1
         with:
-          version: 6.32.x
+          version: 7.1.x
 
       - name: Setup NodeJS ${{ matrix.nodejs-version }}
         uses: actions/setup-node@v3
@@ -38,7 +38,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: |
-            ./node_modules
+            ./package/node_modules
             ~/.pnpm-store
           key: ${{ env.preffix }}-cache-${{ env.cache-name }}-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
@@ -47,11 +47,11 @@ jobs:
             ${{ env.preffix }}-
         env:
           cache-name: code-check
-          preffix: ${{ runner.os }}-node-${{ matrix.nodejs-version }}
+          preffix: node-${{ matrix.nodejs-version }}
 
       - name: Install dependencies
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: pnpm i
+        run: cd package && pnpm install
 
       - name: Perform all checkings
-        run: pnpm run all
+        run: cd package && pnpm run all
