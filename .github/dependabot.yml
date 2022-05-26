@@ -6,12 +6,17 @@ updates:
     schedule:
       interval: daily
 
-  - package-ecosystem: npm
+  - package-ecosystem: docker
     directory: /
     schedule:
       interval: daily
 
-  - package-ecosystem: docker
-    directory: /
+  - package-ecosystem: npm
+    directory: /package
+    schedule:
+      interval: daily
+
+  - package-ecosystem: pip
+    directory: /.docs
     schedule:
       interval: daily
