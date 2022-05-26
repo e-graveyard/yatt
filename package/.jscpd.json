@@ -1,0 +1,15 @@
+{
+  "threshold": 20,
+  "reporters": [
+    "html",
+    "console"
+  ],
+  "absolute": true,
+  "gitignore": true,
+  "ignore": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/report/**",
+    "**/coverage/**"
+  ]
+}

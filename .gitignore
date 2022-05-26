@@ -133,7 +133,6 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-dist/*
 
 # Gatsby files
 .cache/
@@ -196,7 +195,13 @@ $RECYCLE.BIN/
 
 
 # generated documentation
-docs/*
+package/docs
 
 # duplication reports
-report/*
+package/report
+
+# jest cache
+package/.jest-cache
+
+# compiled js
+package/dist
