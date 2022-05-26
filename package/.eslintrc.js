@@ -1,5 +1,6 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint/eslint-plugin'],
   overrides: [
     {
       files: ['*.ts', '*.tsx'],
@@ -8,14 +9,5 @@ module.exports = {
       }
     }
   ],
-  rules: {
-    'no-useless-constructor': 'off',
-    'no-unused-vars': 'off',
-    '@typescript-eslint/no-non-null-assertion': 'off',
-    '@typescript-eslint/interface-name-prefix': 'off',
-    '@typescript-eslint/no-explicit-any': 'off',
-    '@typescript-eslint/no-unused-vars': 'error',
-    '@typescript-eslint/no-useless-constructor': 'error'
-  },
   extends: ['standard-with-typescript']
 }
