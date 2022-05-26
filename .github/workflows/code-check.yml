@@ -30,8 +30,9 @@ jobs:
       - name: Setup NodeJS ${{ matrix.nodejs-version }}
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.nodejs-version }}
           cache: pnpm
+          cache-dependency-path: package/pnpm-lock.yaml
+          node-version: ${{ matrix.nodejs-version }}
 
       - name: Cache pnpm store
         id: cache-node-modules
