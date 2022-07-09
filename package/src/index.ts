@@ -10,8 +10,7 @@ const logger = new Logger({ isDev: true, label: 'yatt' })
  * @param n - the amount of times to repeat.
  * @param cb - the callback function.
  */
-const each = (n: number, cb: (v: any, i: number) => void): void =>
-  Array.from(Array(n).keys()).forEach(cb)
+const each = (n: number, cb: (v: any, i: number) => void): void => Array.from(Array(n).keys()).forEach(cb)
 
 /**
  * Calculate and outputs a multiplication table of a given value.

@@ -2,12 +2,7 @@
  * @module src/lib/Logger
  */
 
-import {
-  Logger as WinstonLogger,
-  transports as transport,
-  format as fmt,
-  createLogger
-} from 'winston'
+import { Logger as WinstonLogger, transports as transport, format as fmt, createLogger } from 'winston'
 
 /**
  * Representation of a hashmap that received a string as a key name and value
