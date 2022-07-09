@@ -40,7 +40,7 @@
     "fix:style": "prettier --config .prettierrc.js '**/*.{js,ts}' --write && ts-standard --fix",
     "test": "jest",
     "test:debug": "npx --node-arg --expose-gc jest --detectOpenHandles --logHeapUsage --runInBand",
-    "postinstall": "sh post-install.sh",
+    "postinstall": "sh .scripts/install-git-hooks.sh",
     "install:hooks": "cd .. && husky install"
   },
   "_moduleAliases": {
@@ -49,30 +49,30 @@
   "dependencies": {
     "module-alias": "^2.2.2",
     "regenerator-runtime": "^0.13.9",
-    "winston": "^3.7.2"
+    "winston": "^3.8.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.0.1",
-    "@commitlint/config-conventional": "^17.0.0",
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
     "@swc/cli": "^0.1.57",
-    "@swc/core": "^1.2.194",
-    "@types/jest": "^27.5.1",
-    "@types/node": "^17.0.35",
+    "@swc/core": "^1.2.211",
+    "@types/jest": "^27.5.2",
+    "@types/node": "^17.0.45",
     "commitizen": "^4.2.4",
     "conventional-changelog-cli": "^2.2.2",
     "cz-conventional-changelog": "^3.3.0",
     "husky": "^8.0.1",
-    "jest": "^28.1.0",
+    "jest": "^28.1.2",
     "jscpd": "^3.4.5",
-    "lint-staged": "^12.4.2",
-    "nodemon": "^2.0.16",
-    "npm-check-updates": "^13.0.3",
-    "prettier": "^2.6.2",
+    "lint-staged": "^12.5.0",
+    "nodemon": "^2.0.19",
+    "npm-check-updates": "^13.1.5",
+    "prettier": "^2.7.1",
     "standard-version": "^9.5.0",
-    "ts-jest": "^28.0.3",
-    "ts-node": "^10.8.0",
+    "ts-jest": "^28.0.5",
+    "ts-node": "^10.8.2",
     "ts-standard": "^11.0.0",
-    "typedoc": "^0.22.15",
-    "typescript": "^4.7.2"
+    "typedoc": "^0.23.7",
+    "typescript": "^4.7.4"
   }
 }
