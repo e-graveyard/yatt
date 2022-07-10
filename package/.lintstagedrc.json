@@ -1,5 +1,6 @@
 {
   "**/*.ts": [
-    "npm run fix:style"
+    "prettier --config .prettierrc.js '**/*.{js,ts}' --write",
+    "ts-standard --fix"
   ]
 }

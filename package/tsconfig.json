@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "lib": ["ES2019", "ES2020", "ES2021"],
     "target": "ES2018",
     "module": "commonjs",
     "outDir": "./dist",
@@ -8,12 +9,13 @@
       "@yatt/*": ["src/*"]
     },
     "strict": true,
-    "alwaysStrict": true,
     "removeComments": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedParameters": false,
+    "experimentalDecorators": true,
     "esModuleInterop": true,
-    "pretty": true
+    "emitDecoratorMetadata": true,
+    "incremental": true
   },
   "exclude": [
     "node_modules",

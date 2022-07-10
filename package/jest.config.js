@@ -15,19 +15,13 @@ module.exports = {
   collectCoverage: true,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
-  collectCoverageFrom: [
-    '**/src/**/*.ts',
-    '!src/index.ts'
-  ],
+  collectCoverageFrom: ['**/src/**/*.ts', '!src/index.ts'],
 
   // The directory where Jest should output its coverage files
   coverageDirectory: 'coverage',
 
   // An array of regexp pattern strings used to skip coverage collection
-  coveragePathIgnorePatterns: [
-    '/dist/',
-    '/node_modules/'
-  ],
+  coveragePathIgnorePatterns: ['/dist/', '/node_modules/'],
 
   // A list of reporter names that Jest uses when writing coverage reports
   coverageReporters: ['json-summary', 'text-summary', 'html', 'lcov'],
