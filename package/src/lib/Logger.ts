@@ -1,23 +1,18 @@
-/**
- * @module src/lib/Logger
- */
-
 import { Logger as WinstonLogger, transports as transport, format as fmt, createLogger } from 'winston'
 
 /**
- * Representation of a hashmap that received a string as a key name and value
- * of any type.
+ * Representation of a hashmap that binds a string property to a generic T value
  * @interface
  */
-interface IHash {
-  [key: string]: any
+export interface IHash<T = string> {
+  [key: string]: T
 }
 
 /**
  * Representation of the logger class config.
  * @interface
- * @property isDev - Whether the logger is on dev mode or not.
- * @property label - The logger label.
+ * @property isDev Whether the logger is on dev mode or not.
+ * @property label The logger label.
  */
 export interface ILoggerConfig {
   readonly isDev?: boolean
@@ -35,7 +30,7 @@ export default class {
 
   /**
    * Creates a new console logger.
-   * @param config - Configuration with "isDev" flag and log "label".
+   * @param config Configuration with "isDev" flag and log "label".
    */
   public constructor (config?: ILoggerConfig) {
     const c = typeof config === 'undefined' ? {} : config
@@ -69,8 +64,8 @@ export default class {
 
   /**
    * Emits an informational log message.
-   * @param message - The log message.
-   * @param [data] - Additional data to be shown, such as an HTTP response object.
+   * @param message The log message.
+   * @param data Additional data to be shown, such as an HTTP response object.
    */
   public info (message: string, data?: IHash): void {
     this.logger.info(message, data)
@@ -78,8 +73,8 @@ export default class {
 
   /**
    * Emits a warning log message.
-   * @param message - The log message.
-   * @param [data] - Additional data to be shown, such as an error object.
+   * @param message The log message.
+   * @param data Additional data to be shown, such as an error object.
    */
   public warn (message: string, data?: IHash): void {
     this.logger.warn(message, data)
@@ -87,8 +82,8 @@ export default class {
 
   /**
    * Emits an error log message.
-   * @param message - The log message.
-   * @param [data] - Additional data to be shown, such as an error object.
+   * @param message The log message.
+   * @param data Additional data to be shown, such as an error object.
    */
   public error (message: string, data?: IHash): void {
     this.logger.error(message, data)

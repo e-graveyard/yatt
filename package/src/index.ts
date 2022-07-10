@@ -2,22 +2,24 @@ import 'module-alias/register'
 import Calculator from '@yatt/Calculator'
 import Logger from '@yatt/lib/Logger'
 
-const logger = new Logger({ isDev: true, label: 'yatt' })
+export { Calculator, Logger }
+
+export const logger = new Logger({ isDev: true, label: 'yatt' })
 
 /**
  * Repeats a given callback function N times.
  *
- * @param n - the amount of times to repeat.
- * @param cb - the callback function.
+ * @param n How many times the callback function should be repeated.
+ * @param cb The callback function.
  */
-const each = (n: number, cb: (v: any, i: number) => void): void => Array.from(Array(n).keys()).forEach(cb)
+export const each = (n: number, cb: (v: any, i: number) => void): void => Array.from(Array(n).keys()).forEach(cb)
 
 /**
- * Calculate and outputs a multiplication table of a given value.
+ * Calculates and outputs a multiplication table of a given value.
  *
- * @param operand - the multiplication number.
+ * @param operand The multiplication number.
  */
-function multiplicationTable (operand: number): void {
+export function multiplicationTable (operand: number): void {
   logger.warn('-'.repeat(30))
   logger.warn(`Times table of ${operand}:`)
 
