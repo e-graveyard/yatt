@@ -5,7 +5,7 @@
 
 # Yet Another TypeScript (project) Template
 
-<img src=".docs/logo.svg" height="260px" align="right"/>
+<img src="logo.svg" height="260px" align="right"/>
 
 An opinionated template for TypeScript projects that includes, out of the box:
 
