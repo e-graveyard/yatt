@@ -7,9 +7,10 @@
   "absolute": true,
   "gitignore": true,
   "ignore": [
-    "**/node_modules/**",
+    "**/coverage/**",
     "**/dist/**",
-    "**/report/**",
-    "**/coverage/**"
+    "**/docs/**",
+    "**/node_modules/**",
+    "**/report/**"
   ]
 }
