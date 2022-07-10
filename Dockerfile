@@ -1,43 +1,58 @@
-FROM node:16-alpine AS base
+# ...
+FROM node:16.15-buster-slim AS base
 LABEL maintainer="Caian Ertl <hi@caian.org>"
 
-RUN addgroup -S turing && adduser -S turing -G turing \
-    && mkdir -p /home/turing \
-    && chown turing:turing /home/turing
-USER turing
+ARG DOCKER_DEFAULT_USER=turing
+ENV DOCKER_DEFAULT_USER $DOCKER_DEFAULT_USER
+
+ARG DOCKER_USER_HOME_DIR=/home/${DOCKER_DEFAULT_USER}
+ENV DOCKER_USER_HOME_DIR $DOCKER_USER_HOME_DIR
+
+RUN groupadd "${DOCKER_DEFAULT_USER}" \
+    && useradd \
+        -rm \
+        -d "${DOCKER_USER_HOME_DIR}" \
+        -s /bin/bash \
+        -g "${DOCKER_DEFAULT_USER}" "${DOCKER_DEFAULT_USER}" \
+    && mkdir -p \
+        "${DOCKER_USER_HOME_DIR}" \
+    && chown -R \
+        "${DOCKER_DEFAULT_USER}:${DOCKER_DEFAULT_USER}" \
+        "${DOCKER_USER_HOME_DIR}" \
+    && npm install --location=global "npm@8.13.0" \
+    && npm install --location=global "pnpm@7.5.0"
+
+WORKDIR ${DOCKER_USER_HOME_DIR}
+USER ${DOCKER_DEFAULT_USER}
+
 
 # ...
 FROM base AS package
-WORKDIR /home/turing
-COPY package.json .
-COPY pnpm-lock.yaml .
+COPY package/package.json .
+COPY package/pnpm-lock.yaml .
+COPY package/.scripts .scripts
+
 
 # ...
-FROM package as bin
-USER root
-RUN npm i -g pnpm@latest \
-    && apk add --no-cache curl \
-    && curl -sf https://gobinaries.com/tj/node-prune | sh
-USER turing
+FROM package AS prod-deps
+RUN NODE_ENV="production" pnpm i
+
 
 # ...
-FROM bin AS dev-deps
+FROM package AS dev-deps
 RUN pnpm i
 
-# ...
-FROM bin AS prod-deps
-RUN NODE_ENV="production" pnpm i
-RUN node-prune
 
 # ...
 FROM dev-deps AS build
-COPY src src
-COPY tsconfig.json .
-COPY .swcrc .
+COPY package/src src
+COPY package/tsconfig.json .
+COPY package/.swcrc .
 RUN pnpm run build:js
 
+
 # ...
-FROM base AS run
-COPY --from=prod-deps ["/home/turing/node_modules", "node_modules"]
-COPY --from=build ["/home/turing/dist", "dist"]
+FROM package AS run
+COPY --from=prod-deps ${DOCKER_USER_HOME_DIR}/node_modules node_modules
+COPY --from=build ${DOCKER_USER_HOME_DIR}/dist dist
 ENTRYPOINT ["node", "dist"]
