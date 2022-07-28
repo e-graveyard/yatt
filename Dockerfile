@@ -1,5 +1,5 @@
 # ...
-FROM node:16.15-buster-slim AS base
+FROM node:18.7.0-buster-slim AS base
 LABEL maintainer="Caian Ertl <hi@caian.org>"
 
 ARG DOCKER_DEFAULT_USER=turing
