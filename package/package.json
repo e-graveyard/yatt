@@ -68,7 +68,7 @@
     "jscpd": "^3.4.5",
     "lint-staged": "^12.5.0",
     "nodemon": "^2.0.19",
-    "npm-check-updates": "^13.1.5",
+    "npm-check-updates": "^16.0.3",
     "prettier": "^2.7.1",
     "standard-version": "^9.5.0",
     "ts-jest": "^28.0.7",
