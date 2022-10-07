@@ -22,26 +22,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v2.2.2
-        with:
-          version: 7.5.x
-
       - name: Setup NodeJS ${{ matrix.nodejs-version }}
         uses: actions/setup-node@v3
         with:
-          cache: pnpm
-          cache-dependency-path: package/pnpm-lock.yaml
+          cache: npm
+          cache-dependency-path: package/package-lock.json
           node-version: ${{ matrix.nodejs-version }}
 
-      - name: Cache pnpm store
+      - name: Cache node modules
         id: cache-node-modules
         uses: actions/cache@v3
         with:
           path: |
             ./package/node_modules
-            ~/.pnpm-store
-          key: ${{ env.preffix }}-cache-${{ env.cache-name }}-${{ hashFiles('**/pnpm-lock.yaml') }}
+          key: ${{ env.preffix }}-cache-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ env.preffix }}-cache-${{ env.cache-name }}-
             ${{ env.preffix }}-cache-
@@ -52,7 +46,7 @@ jobs:
 
       - name: Install dependencies
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
-        run: cd package && pnpm install
+        run: cd package && npm install
 
       - name: Perform all checkings
-        run: cd package && pnpm run all
+        run: cd package && npm run all
