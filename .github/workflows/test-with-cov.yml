@@ -26,21 +26,7 @@ jobs:
           cache-dependency-path: package/package-lock.json
           node-version: 16.x
 
-      - name: Cache node modules
-        id: cache-node-modules
-        uses: actions/cache@v3
-        with:
-          path: |
-            ./package/node_modules
-          key: cache-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            cache-${{ env.cache-name }}-
-            cache-
-        env:
-          cache-name: test-with-cov
-
       - name: Install dependencies
-        if: steps.cache-node-modules.outputs.cache-hit != 'true'
         run: cd package && npm install
 
       - name: Run unit tests
